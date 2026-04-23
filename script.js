@@ -17,6 +17,11 @@ function fetchFruitData(fruit){
         .then(processResponse)
         .then((data)=>addFruit(data))
         .catch((error)=>console.log(error))
+
+    //fetch (`${fruit}+fruit&category=food`)
+        // .then(processResponse)
+        // .then((pic)=> console.log(pic.hits.previewURL))
+        // .catch((error)=>console.log(error))
 }
 
 function processResponse(response){
