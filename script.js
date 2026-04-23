@@ -13,11 +13,14 @@ function extractFruit(e){
 }
 
 function fetchFruitData(fruit){
-    fetch (`https://fruit-api-5v0j.onrender.com/fruits/${fruit}`)
-        .then(processResponse)
-        .then((data)=>addFruit(data))
-        .catch((error)=>console.log(error))
-
+    try{
+        const response = await fetch (`https://fruit-api-5v0j.onrender.com/fruits/${fruit}`)
+        const data = await response.json
+        addFruit(data)
+    }   catch(error){
+        console.log(error)
+    }
+    
     //fetch (`${fruit}+fruit&category=food`)
         // .then(processResponse)
         // .then((pic)=> console.log(pic.hits.previewURL))
