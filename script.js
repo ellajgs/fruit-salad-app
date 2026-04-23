@@ -14,9 +14,17 @@ function extractFruit(e){
 
 function fetchFruitData(fruit){
     fetch (`https://fruit-api-5v0j.onrender.com/fruits/${fruit}`)
-        .then((response)=>response.json())
+        .then(processResponse)
         .then((data)=>addFruit(data))
         .catch((error)=>console.log(error))
+}
+
+function processResponse(response){
+    if (response.status === 200){
+        return response.json()
+    } else {
+        throw "Error: http status code" + response.status
+    }
 }
 
 function addFruit(fruit){
