@@ -41,7 +41,8 @@ async function fetchFruitData(fruit) {
 function addFruit(fruit, imageUrl) {
   const li = document.createElement("li");
   li.textContent = fruit.name;
-  li.dataset.calories = fruit.nutritions.calories;
+  const fruitCalories = fruit.nutritions?.calories||0
+  li.dataset.calories = fruitCalories;
   li.addEventListener("click", removeFruit, { once: true });
 
   if (imageUrl) {
@@ -90,7 +91,7 @@ async function createNewFruit(e) {
     e.target.fruitInput.value = "";
     createMessageStatus.textContent = "New fruit added";
     setTimeout(() => {
-      messageStatus.textContent = "";
+      createMessageStatus.textContent = "";
     }, 4000);
   } else {
     e.target.fruitInput.value = "";
@@ -136,20 +137,20 @@ async function deleteFruit(e) {
 async function updateFruit(e) {
   e.preventDefault();
   console.log("updateFruit");
-  const toChange = e.target.toChange.value
-  const newValue = e.target.newValue.value
-  const data = {toChange: newValue}
+  const toChange = e.target.toChange.value;
+  const newValue = e.target.newValue.value;
+  const data = {};
+  data[toChange] = newValue;
 
-  console.log(toChange, newValue)
-  console.log(data)
-
+  console.log(toChange, newValue);
+  console.log(data);
 
   const options = {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   };
 
   const response = await fetch(
