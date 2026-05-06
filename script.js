@@ -14,7 +14,7 @@ function extractFruit(e){
 
 async function fetchFruitData(fruit){
     try{
-        const response = await fetch (`https://fruit-api-5v0j.onrender.com/fruits/${fruit}`)
+        const response = await fetch (`https://fruits-api-j74x.onrender.com/fruits/${fruit}`)
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -54,4 +54,5 @@ function removeFruit(e){
     fruitNutrition.textContent = calories
     e.target.remove()
 }
+
 
