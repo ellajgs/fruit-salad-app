@@ -1,28 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="./script.js"></script>
     <title>Fruit Salad</title>
-</head>
-<body>
+  </head>
+  <body>
     <section id="inputSection">
-        <form>
-            <label for="fruitInput">Enter fruit name</label>
-            <input id="fruitInput" name="fruit" type="text" placeholder="e.g. banana"/>
-            <input type="submit" value="submit"/>
-        </form>
+      <form>
+        <label for="fruitInput">Enter fruit name</label>
+        <input
+          id="fruitInput"
+          name="fruit"
+          type="text"
+          placeholder="e.g. banana"
+        />
+        <input type="submit" value="Submit" />
+      </form>
     </section>
     <section id="fruitSection">
-        <h3>Fruits:</h3>
-        <ul>
-
-        </ul>
+      <h3>Fruits:</h3>
+      <ul></ul>
     </section>
     <section id="nutritionSection">
-        <h3>Calories:</h3>
-        <p></p>
+      <h3>Calories:</h3>
+      <p></p>
     </section>
-</body>
+    <section id="create-section">
+      <form id="create-form">
+        <input id="fruitInput" type="text" name="fruit" placeholder="name" />
+        <input type="submit" value="Create" />
+      </form>
+      <p id="create-message"></p>
+    </section>
+    <section id="update-section">
+      <form id="update-form">
+        <input id="fruitName" type="text" name="fruit" placeholder="name" />
+        <input
+          id="toChange "
+          type="text"
+          name="toChange"
+          placeholder="what to change"
+        />
+        <input
+          id="newValue "
+          type="text"
+          name="newValue"
+          placeholder="new value"
+        />
+        <input type="submit" value="Update" />
+      </form>
+      <p id="update-message"></p>
+    </section>
+    <section id="delete-section">
+      <form id="delete-form">
+        <input id="fruitName" type="text" name="fruit" placeholder="name" />
+        <input type="submit" value="Delete" />
+      </form>
+      <p id="delete-message"></p>
+    </section>
+  </body>
 </html>
